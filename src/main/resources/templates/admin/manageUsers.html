@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Admin View</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+    #table {
+      font-family: "Raleway", sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      padding: 50px;
+    }
+
+    #table td, #table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+  </style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="w3-padding-64 w3-center"><b>WELCOME<br>ADMIN</b></h3>
+  <a th:href="@{/api/admin/manage-users}" class="w3-bar-item w3-button">VIEW USERS</a>
+  <a th:href="@{/api/admin/add-user}" class="w3-bar-item w3-button">ADD USER</a>
+  <a th:href="@{/api/change-password}" class="w3-bar-item w3-button">CHANGE PASSWORD</a>
+  <a th:href="@{/api/login}" class="w3-bar-item w3-button">LOG OUT</a>
+</nav>
+
+<div class="w3-main" style="margin-left:350px; margin-right: 50px; margin-top: 50px;">
+  <div class="w3-center w3-padding-32">
+    <table id="table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="user: ${userList}">
+        <td><span th:text="${user.id}"></span></td>
+        <td><span th:text="${user.firstName}"></span> </td>
+        <td><span th:text="${user.lastName}"></span> </td>
+        <td><span th:text="${user.email}"></span> </td>
+        <td><span th:text="${user.role}"></span> </td>
+        <td>
+          <a th:href="@{/api/admin/manage-users/delete/{id}(id=${user.id})}" class="button">Delete</a>
+          <a th:href="@{/api/admin/manage-users/edit/{id}(id=${user.id})}" class="button">Edit</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

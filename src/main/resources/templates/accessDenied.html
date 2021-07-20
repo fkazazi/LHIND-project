@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Access Denied</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    body{
+      background-color: whitesmoke;
+      color: black;
+    }
+
+    h1 {
+      color: blue;
+    }
+
+    h6{
+      color: black;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="w3-display-middle">
+  <h1 class="w3-jumbo"><code>Access Denied</code></h1>
+  <hr class="w3-border-white" style="margin:auto;width:50%">
+  <h3 class="w3-center">You do not have permission to view this site.</h3>
+
+  <p class="w3-center">
+    <a th:href="@{/api/login}">
+      Go back to login page
+    </a></p>
+</div>
+</body>
+</html>
